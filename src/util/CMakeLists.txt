@@ -145,6 +145,7 @@ configure_file(
 # Set sources
 #------------------------------------------------------------------------------
 set(MERCURY_UTIL_SRCS
+  ${CMAKE_CURRENT_SOURCE_DIR}/casys.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mercury_atomic_queue.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mercury_event.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mercury_hash_table.c
@@ -208,6 +209,7 @@ install(
 #-----------------------------------------------------------------------------
 set(MERCURY_HEADERS
   ${CMAKE_CURRENT_BINARY_DIR}/mercury_util_config.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/casys.h
   ${CMAKE_CURRENT_SOURCE_DIR}/mercury_atomic.h
   ${CMAKE_CURRENT_SOURCE_DIR}/mercury_atomic_queue.h
   ${CMAKE_CURRENT_SOURCE_DIR}/mercury_event.h

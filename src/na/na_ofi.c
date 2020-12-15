@@ -78,6 +78,8 @@
 #include <inttypes.h>
 #include <sys/uio.h> /* for struct iovec */
 
+#include "casys.h"
+
 /****************/
 /* Local Macros */
 /****************/
@@ -94,7 +96,7 @@
     (FI_MR_VIRT_ADDR | FI_MR_ALLOCATED | FI_MR_PROV_KEY)
 
 /* flags that control na_ofi behavior (in the X macro below for each
- * provider) 
+ * provider)
  */
 /* requires domain verification in addition to provider match */
 #define NA_OFI_VERIFY_PROV_DOM          (1 << 0)
@@ -112,7 +114,7 @@
 /* X-macro to define the following for each supported provider:
  * - enum type
  * - name
- * - alternate (alias) names for convenience 
+ * - alternate (alias) names for convenience
  * - address format
  * - progress mode
  * - additional capabilities used (beyond the base set required by NA)
@@ -3858,6 +3860,7 @@ na_ofi_msg_send_unexpected(na_class_t *na_class, na_context_t *context,
     NA_LOG_DEBUG("Posting unexpected msg send with tag=%llu (op id=%p)",
         tag | NA_OFI_UNEXPECTED_TAG, na_ofi_op_id);
 
+    CASYS_TRACE_CLIENT_REQ_POST();
     /* Post the FI unexpected send request */
     rc = fi_tsend(ctx->fi_tx, buf, buf_size, na_ofi_op_id->info.msg.fi_mr,
         na_ofi_op_id->info.msg.fi_addr, tag | NA_OFI_UNEXPECTED_TAG,
