@@ -31,6 +31,8 @@
 #include <na_sm.h>
 #endif
 
+#include <dt_client.h>
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -2504,6 +2506,7 @@ hg_core_complete(hg_core_handle_t handle)
         hg_core_handle->is_self);
     HG_CHECK_HG_ERROR(done, ret,
         "Could not add HG completion entry to completion queue");
+    DTRACE_CLIENT_REPLY_GET();
 
 done:
     return ret;
