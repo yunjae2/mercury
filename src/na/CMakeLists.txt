@@ -41,6 +41,7 @@ endif()
 set(NA_BUILD_INCLUDE_DEPENDENCIES
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
+  ${DTRACE_INCLUDE_DIR}
 )
 
 #------------------------------------------------------------------------------
@@ -60,6 +61,12 @@ mark_as_advanced(NA_ALLOW_MULTI_PROGRESS)
 # External dependencies / NA plugins
 #------------------------------------------------------------------------------
 include(CheckIncludeFiles)
+
+# DTRACE
+set(NA_EXT_LIB_DEPENDENCIES
+    ${NA_EXT_LIB_DEPENDENCIES}
+    ${DTRACE_LIBRARY_DIR}
+    )
 
 # BMI
 option(NA_USE_BMI "Use BMI." OFF)
