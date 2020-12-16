@@ -65,7 +65,7 @@ include(CheckIncludeFiles)
 # DTRACE
 set(NA_EXT_LIB_DEPENDENCIES
     ${NA_EXT_LIB_DEPENDENCIES}
-    ${DTRACE_LIBRARY_DIR}
+    ${DTRACE_LIBRARIES}
     )
 
 # BMI
